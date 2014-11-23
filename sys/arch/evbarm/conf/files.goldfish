@@ -1,0 +1,16 @@
+file    arch/arm/arm32/irq_dispatch.S
+file	arch/arm/arm32/arm32_boot.c
+file	arch/arm/arm32/arm32_kvminit.c
+
+file	arch/evbarm/goldfish/goldfish_machdep.c
+
+device	goldfish {[offset = -1], [irq = -1]}: bus_space_generic
+attach	goldfish at mainbus
+file	arch/evbarm/goldfish/goldfish.c		goldfish
+file	arch/evbarm/goldfish/goldfish_intr.c	goldfish
+file	arch/evbarm/goldfish/goldfish_clock.c	goldfish
+file	arch/evbarm/goldfish/goldfish_space.c	goldfish
+
+device	goldfish_com
+attach	goldfish_com at goldfish
+file	arch/evbarm/goldfish/goldfish_com.c	goldfish_com

@@ -1,0 +1,17 @@
+machine	evbarm arm
+include 	"arch/evbarm/conf/std.evbarm"
+
+include 	"arch/evbarm/conf/files.goldfish"
+
+options 	EXEC_AOUT
+
+# options 	_ARM32_NEED_BUS_DMA_BOUNCE # eh?
+
+#options 	ARM32_NEW_VM_LAYOUT	# Not yet ready for prime-time
+
+makeoptions	BOARDTYPE="goldfish"
+makeoptions	BOARDMKFRAG="${THISARM}/conf/mk.goldfish"
+
+options 	ARM_INTR_IMPL="<arch/evbarm/goldfish/goldfish_intr.h>"
+
+options 	KERNEL_BASE_EXT=0xc0000000
